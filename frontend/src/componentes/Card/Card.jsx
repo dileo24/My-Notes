@@ -19,7 +19,11 @@ const Card = ({
         <div className={style.body}>
           <NavLink to={`/detail/${id}`} style={{ textDecoration: "none" }}>
             <div className={style.link}>
-              <h1 className={style.title}>{title}</h1>
+              {title.length ? (
+                <h1 className={style.title}>{title}</h1>
+              ) : (
+                <h1 className={style.title}>NO TITLE</h1>
+              )}
               <p>({category.join(", ")})</p>
             </div>
           </NavLink>
