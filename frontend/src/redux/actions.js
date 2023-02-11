@@ -61,15 +61,8 @@ export function postCategory(payload) {
   };
 } */
 export function updateNote(data, id) {
-  console.log(data, id);
-  return function () {
-    fetch(`http://localhost:3001/notes/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+  return async function () {
+    await axios.put(`/notes/${id}`, data);
   };
 }
 
