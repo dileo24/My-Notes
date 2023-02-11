@@ -63,7 +63,6 @@ const NoteCreate = () => {
     dispatch(postCategory({ name }));
     dispatch(getCategorys()).then(dispatch(getCategorys()));
     setname("");
-    history.push("/notes");
   };
 
   return (
