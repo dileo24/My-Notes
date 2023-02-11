@@ -24,7 +24,11 @@ const Card = ({
               ) : (
                 <h1 className={style.title}>NO TITLE</h1>
               )}
-              <p>({category.join(", ")})</p>
+              {category.length ? (
+                <p>({category.join(", ")})</p>
+              ) : (
+                <p>without category</p>
+              )}
             </div>
           </NavLink>
           <p>Last edited: {lastEdited.split("", 10)}</p>
