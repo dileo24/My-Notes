@@ -7,8 +7,8 @@ import UpdateNote from "./componentes/UpdateNote/updateNote";
 import Archived from "./componentes/Archived/Archived";
 import Detail from "./componentes/Detail/Detail";
 
-axios.defaults.baseURL = "http://localhost:3001";
-axios.defaults.baseURL = "https://my-notes-production.up.railway.app";
+/* axios.defaults.baseURL = "http://localhost:3001"; */
+axios.defaults.baseURL = "https://my-notes-production.up.railway.app/";
 
 function App() {
   return (
