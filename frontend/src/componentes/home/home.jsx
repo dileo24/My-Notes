@@ -50,7 +50,7 @@ const Home = () => {
       </div>
       <div className={style.buttons}>
         <select onChange={(e) => handlerFilterCategs(e)}>
-          <option hidden>Filter...</option>
+          <option hidden>Filter by category...</option>
           <option value="all">All</option>
           {categs?.map((c) => {
             return (
