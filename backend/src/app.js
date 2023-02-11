@@ -25,14 +25,6 @@ server.use((req, res, next) => {
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
   next();
 });
-server.use(
-  cors({
-    origin: "*",
-    methods: ["GET", "PUT", "POST", "DELETE"],
-    allowedHeaders: ["Authorization", "Content-Type"],
-    maxAge: 86400,
-  })
-);
 
 server.use("/", routes);
 
