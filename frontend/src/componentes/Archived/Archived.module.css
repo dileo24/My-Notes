@@ -19,7 +19,6 @@
 
 .section {
   display: grid;
-  padding: 20px;
   justify-content: center;
   grid-template-columns: 400px 400px 400px;
 }
@@ -32,4 +31,18 @@
 }
 .notFound img {
   width: 200px;
+}
+@media screen and (max-width: 768px) {
+  .divaHome {
+    width: 100%;
+    height: 100%;
+  }
+
+  .section {
+    display: flex;
+    flex-direction: column;
+  }
+  .divTitle {
+    margin-left: 4.5rem;
+  }
 }

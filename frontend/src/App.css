@@ -1,9 +1,3 @@
 .App {
   text-align: center;
 }
-
-.divPadre {
-  width: 100%;
-  height: 200vh;
-  background-image: url("../src/img/fondo3.png");
-}

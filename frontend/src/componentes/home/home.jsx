@@ -70,23 +70,21 @@ const Home = () => {
       </div>
 
       {unarchived.length > 0 ? (
-        <div>
-          <div className={style.section}>
-            {unarchived.map((card) => (
-              <div key={card.id}>
-                <Card
-                  id={card.id}
-                  onClose={onClose}
-                  archive={archive}
-                  title={card.title}
-                  category={card.category}
-                  content={card.content}
-                  lastEdited={card.fecha}
-                  archivedLogo={archivedLogo}
-                />
-              </div>
-            ))}
-          </div>
+        <div className={style.section}>
+          {unarchived.map((card) => (
+            <div key={card.id}>
+              <Card
+                id={card.id}
+                onClose={onClose}
+                archive={archive}
+                title={card.title}
+                category={card.category}
+                content={card.content}
+                lastEdited={card.fecha}
+                archivedLogo={archivedLogo}
+              />
+            </div>
+          ))}
         </div>
       ) : (
         <div className={style.notFound}>

@@ -77,7 +77,7 @@ const NoteCreate = () => {
 
           <form onSubmit={(e) => handlerSubmitCateg(e)}>
             <div className={style.inputI}>
-              <label>New Category: </label>
+              <label className={style.newCat}>New Category: </label>
               <input
                 type="text"
                 name="name"
@@ -95,23 +95,26 @@ const NoteCreate = () => {
           {/* creacion de la nota */}
 
           <form onSubmit={(e) => handlerSubmitForm(e)}>
+            <p className={style.pcategs}>Select one category!</p>
             <div className={style.categs}>
               {categs?.map((obj) => {
                 return (
-                  <label
-                    htmlFor={obj.name}
-                    key={obj.id}
-                    className={style.categsLabel}
-                  >
-                    {obj.name}
-                    <input
-                      type="checkbox"
-                      name="categ"
-                      id={obj.id}
-                      value={obj.name}
-                      onChange={(e) => handlerSelectCateg(e)}
-                    />
-                  </label>
+                  <div className={style.categsDiv}>
+                    <label
+                      htmlFor={obj.name}
+                      key={obj.id}
+                      className={style.categsLabel}
+                    >
+                      {obj.name}
+                      <input
+                        type="checkbox"
+                        name="categ"
+                        id={obj.id}
+                        value={obj.name}
+                        onChange={(e) => handlerSelectCateg(e)}
+                      />
+                    </label>
+                  </div>
                 );
               })}
             </div>

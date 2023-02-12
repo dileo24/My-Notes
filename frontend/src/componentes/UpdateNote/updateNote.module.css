@@ -22,7 +22,7 @@
 }
 
 .forms {
-  padding-top: 50px;
+  padding-top: 10px;
   width: 40%;
   height: 70%;
   display: flex;
@@ -41,6 +41,11 @@
   grid-template-columns: 150px 150px 150px;
   justify-content: center;
   align-items: center;
+}
+.categsDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .inputI {
@@ -113,4 +118,28 @@
 
 .publicar button:hover::before {
   width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .inputI {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8rem;
+    width: 55%;
+  }
+  .newCat {
+    margin-left: 5rem;
+  }
+  .categs {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    justify-content: center;
+    align-items: center;
+  }
+  .pcategs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

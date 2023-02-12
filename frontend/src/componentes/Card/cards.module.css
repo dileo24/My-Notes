@@ -38,12 +38,12 @@
 
 .imgs button {
   margin-right: 4rem;
-  background: rgba(245, 245, 220, 0.548);
+  background: rgba(255, 251, 239, 0.644);
   transition: 0.3s ease-in-out;
 }
 
 .imgs button:hover {
-  background-color: rgb(201, 201, 145);
+  background-color: rgba(252, 244, 220, 0.925);
   cursor: pointer;
 }
 
@@ -54,7 +54,7 @@
 
 .link {
   border-bottom: 1.5px solid rgba(36, 36, 36, 0.829);
-  background-color: rgba(245, 245, 220, 0.548);
+  background-color: rgba(255, 251, 239, 0.644);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,7 +64,7 @@
 }
 
 .link:hover {
-  background-color: rgb(241, 241, 195);
+  background-color: rgba(252, 244, 220, 0.925);
 }
 
 .link h1 {
