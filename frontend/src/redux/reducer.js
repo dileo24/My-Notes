@@ -3,8 +3,10 @@ import {
   DELETE_NOTE,
   ARCHIVE_NOTE,
   GET_DETAIL,
+  CLEAN_DETAIL,
   GET_CATEGORYS,
   FILTER_BY_CATEG,
+  SEARCHxTITLE,
 } from "./actions";
 
 const initialState = {
@@ -35,12 +37,19 @@ const rootReducer = (state = initialState, action) => {
         detail: action.payload,
       };
 
+    case CLEAN_DETAIL:
+      return {
+        ...state,
+        detail: [],
+      };
+
     case DELETE_NOTE: {
       return {
         ...state,
         notes: state.notes.filter((note) => note.id !== action.payload),
       };
     }
+
     case ARCHIVE_NOTE: {
       let newArchive = state.notes.find((note) => note.id === action.payload);
       return {
@@ -52,6 +61,7 @@ const rootReducer = (state = initialState, action) => {
         ],
       };
     }
+
     case FILTER_BY_CATEG:
       const noteCateg =
         action.payload === "all"
@@ -63,6 +73,17 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         notes: noteCateg,
       };
+
+    case SEARCHxTITLE: {
+      let title = action.payload.toLowerCase();
+      const notesFilter = state.copyNotes.filter((note) =>
+        note.title.toLowerCase().includes(title)
+      );
+      return {
+        ...state,
+        notes: [...notesFilter],
+      };
+    }
 
     default:
       return { ...state };

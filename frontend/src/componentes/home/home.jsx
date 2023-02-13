@@ -5,24 +5,20 @@ import {
   getNotes,
   archiveNote,
   updateNote,
-  filterByCateg,
-  getCategorys,
 } from "../../redux/actions";
 import style from "./home.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../Card/Card";
-import { Link } from "react-router-dom";
 import archivedLogo from "../../img/archived.png";
+import Filters from "../Filters/Filters";
 
 const Home = () => {
   const dispatch = useDispatch();
   let notes = useSelector((state) => state.notes);
-  let categs = useSelector((state) => state.categorys);
   let unarchived = notes.filter((note) => note.archived !== true);
 
   useEffect(() => {
     dispatch(getNotes());
-    dispatch(getCategorys());
   }, [dispatch]);
 
   const onClose = (id) => {
@@ -39,35 +35,13 @@ const Home = () => {
     dispatch(archiveNote(id));
   };
 
-  const handlerFilterCategs = (e) => {
-    dispatch(filterByCateg(e.target.value));
-  };
-
   return (
     <div className={style.divaHome}>
       <div className={style.divTitle}>
         <h1>My Notes</h1>
       </div>
-      <div className={style.buttons}>
-        <select onChange={(e) => handlerFilterCategs(e)}>
-          <option hidden>Filter by category...</option>
-          <option value="all">All</option>
-          {categs?.map((c) => {
-            return (
-              <option value={c.name} key={c.id}>
-                {c.name}
-              </option>
-            );
-          })}
-        </select>
 
-        <Link to="/notes">
-          <button>Create Note</button>
-        </Link>
-        <Link to="/archivedNotes">
-          <button>Archived Notes</button>
-        </Link>
-      </div>
+      <Filters />
 
       {unarchived.length > 0 ? (
         <div className={style.section}>

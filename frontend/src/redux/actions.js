@@ -5,6 +5,8 @@ export const DELETE_NOTE = "DELETE_NOTE";
 export const GET_DETAIL = "GET_DETAIL";
 export const GET_CATEGORYS = "GET_CATEGORYS";
 export const FILTER_BY_CATEG = "FILTER_BY_CATEG";
+export const CLEAN_DETAIL = "CLEAN_DETAIL";
+export const SEARCHxTITLE = "SEARCHxTITLE";
 
 export const getNotes = () => {
   return async function (dispatch) {
@@ -35,6 +37,10 @@ export const getDetail = (id) => {
   };
 };
 
+export const cleanDetail = () => {
+  return { type: CLEAN_DETAIL };
+};
+
 export function postNotes(payload) {
   return async function () {
     const response = await axios.post("/notes", payload);
@@ -48,18 +54,6 @@ export function postCategory(payload) {
   };
 }
 
-/* export function updateNote(data, id) {
-  console.log(data, id);
-  return function () {
-    fetch(`http://localhost:3001/notes/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-  };
-} */
 export function updateNote(data, id) {
   return async function () {
     await axios.put(`/notes/${id}`, data);
@@ -93,3 +87,12 @@ export function filterByCateg(payload) {
     payload: payload,
   };
 }
+
+export const searchXtitle = (title) => {
+  console.log(title);
+
+  return {
+    type: SEARCHxTITLE,
+    payload: title,
+  };
+};

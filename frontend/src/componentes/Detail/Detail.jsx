@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import style from "./Detail.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getDetail } from "../../redux/actions";
+import { cleanDetail, getDetail } from "../../redux/actions";
 import { Link, useParams } from "react-router-dom";
 
 const Detail = () => {
@@ -11,6 +11,9 @@ const Detail = () => {
 
   useEffect(() => {
     dispatch(getDetail(id));
+    return function () {
+      dispatch(cleanDetail());
+    };
   }, [dispatch, id]);
 
   return (

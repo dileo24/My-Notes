@@ -60,8 +60,9 @@ const NoteCreate = () => {
   const handlerSubmitCateg = (e) => {
     e.preventDefault();
     console.log(name);
-    dispatch(postCategory({ name }));
-    dispatch(getCategorys()).then(dispatch(getCategorys()));
+    dispatch(postCategory({ name }))
+      .then(dispatch(getCategorys()))
+      .then(dispatch(getCategorys()));
     setname("");
   };
 
