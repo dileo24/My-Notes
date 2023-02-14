@@ -30,7 +30,7 @@ const SearchBar = () => {
         className={style.input}
       ></input>{" "}
       <NavLink to="/" style={{ textDecoration: "none" }}>
-        <button type="submit" onClick={limpiarState} className={style.button}>
+        <button type="submit" onClick={limpiarState} className={style.btn}>
           <img className={style.lupa} alt="" src={img}></img>
         </button>
       </NavLink>

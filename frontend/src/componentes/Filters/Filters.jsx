@@ -25,35 +25,32 @@ const Filters = () => {
 
   return (
     <div className={style.divaHome}>
-      <Link
-        to="/"
-        className={style.allNotes}
-        style={{ textDecoration: "none" }}
-      >
-        <button onClick={(e) => handlerAllNotes(e)}>All Notes</button>
-      </Link>
+      <div className={style.nav}>
+        <Link
+          to="/"
+          className={style.allNotes}
+          style={{ textDecoration: "none" }}
+        >
+          <button onClick={(e) => handlerAllNotes(e)} className={style.btn}>
+            All Notes
+          </button>
+        </Link>
+        <div>
+          <SearchBar />
+        </div>
+      </div>
 
       <div className={style.buttons}>
-        <Link
-          to="/archivedNotes"
-          className={style.b}
-          style={{ textDecoration: "none" }}
-        >
-          <button>Archived Notes</button>
+        <Link to="/archivedNotes" style={{ textDecoration: "none" }}>
+          <button className={style.btn}>Archived Notes</button>
         </Link>
-        <Link
-          to="/notes"
-          className={style.b}
-          style={{ textDecoration: "none" }}
-        >
-          <button>Create Note</button>
+        <Link to="/notes" style={{ textDecoration: "none" }}>
+          <button className={style.btn}>Create Note</button>
         </Link>
-
-        <SearchBar className={style.b} />
 
         <select
           onChange={(e) => handlerFilterCategs(e)}
-          className={style.b}
+          className={style.btn}
           id="categFilter"
         >
           <option hidden>Filter by category...</option>

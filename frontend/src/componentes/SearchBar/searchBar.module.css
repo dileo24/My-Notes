@@ -1,8 +1,9 @@
 .divInput {
-  /* border: rgb(211, 211, 211) solid 1px; */
   width: 20%;
   height: 38px;
   position: relative;
+  left: 40.5%;
+  top: -0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,50 +12,42 @@
 
 .input {
   height: 7px;
-  width: 71.7%;
+  width: 100rem;
   border-right: 0;
   border-radius: 3px 0 0 3px;
-  left: 0;
-  position: absolute;
-  background-color: #eceff1;
+  background-color: transparent;
   border: solid black 0.5px;
-
   padding: 10px;
-  /*  top: 0; */
 }
-.button {
-  height: 31px;
-  width: 20%;
-  font-size: 20px;
-  color: rgb(12, 12, 12);
-  background-color: white;
-  border-radius: 0 3px 3px 0;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  right: 5%;
-  top: 10%;
-  position: absolute;
-  background-color: #eceff1;
-  border: solid black 0.5px;
+
+.btn {
+  position: relative;
+  display: inline-block;
+  margin: 15px;
+  margin-left: -0.5px;
+  padding: 4px 12px;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #000000;
+  background: transparent;
   cursor: pointer;
+  transition: ease-out 0.5s;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 0 rgba(102, 77, 1, 0.644);
+}
+
+.btn:hover {
+  color: rgb(0, 0, 0);
+  box-shadow: inset 0 -100px 0 0 rgba(252, 244, 220, 0.925);
+}
+
+.btn:active {
+  transform: scale(0.9);
 }
 
 .lupa {
   width: 40px;
-}
-
-@media screen and (max-width: 768px) {
-  .button {
-    position: relative;
-    width: 2.5rem;
-    margin-left: 14.3rem;
-    right: 0%;
-  }
-  .input {
-    height: 6.5px;
-    width: 105%;
-    margin-left: 2rem;
-  }
 }
