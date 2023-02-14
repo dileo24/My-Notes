@@ -71,7 +71,7 @@ const NoteCreate = () => {
       <div className={style.createCont}>
         <h1>Create Note</h1>
         <Link to="/">
-          <button>Home</button>
+          <button className={style.btn}>Home</button>
         </Link>
         <div className={style.forms}>
           {/* creacion de categoría */}
@@ -87,8 +87,10 @@ const NoteCreate = () => {
                 onChange={(e) => handlerChangeCateg(e)}
               ></input>
 
-              <div>
-                <button type="submit">Create category!</button>
+              <div className={style.publicCat}>
+                <button type="submit" className={style.btn}>
+                  Create category!
+                </button>
               </div>
             </div>
           </form>

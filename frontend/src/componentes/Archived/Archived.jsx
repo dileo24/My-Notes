@@ -49,7 +49,11 @@ const Archived = () => {
         <h1>Archived Notes</h1>
       </div>
       <div className={style.buttons}>
-        <select onChange={(e) => handlerFilterCategs(e)}>
+        <Link to="/">
+          <button className={style.btn}>Go back to unarchived notes</button>
+        </Link>
+
+        <select onChange={(e) => handlerFilterCategs(e)} className={style.btn}>
           <option hidden>Filter by category...</option>
           <option value="all">All</option>
           {categs?.map((c) => {
@@ -60,10 +64,6 @@ const Archived = () => {
             );
           })}
         </select>
-
-        <Link to="/">
-          <button>Go back to unarchived notes</button>
-        </Link>
       </div>
 
       {archived.length > 0 ? (

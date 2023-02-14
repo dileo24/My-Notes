@@ -21,10 +21,10 @@ const Detail = () => {
       {detail.length ? (
         <div className={style.buttons}>
           <Link to="/">
-            <button>Home</button>
+            <button className={style.btn}>Home</button>
           </Link>
           <Link to={`/notes/${id}`}>
-            <button>Edit Note</button>
+            <button className={style.btn}>Edit Note</button>
           </Link>
         </div>
       ) : (
