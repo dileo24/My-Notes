@@ -8,8 +8,8 @@ import Archived from "./componentes/Archived/Archived";
 import Detail from "./componentes/Detail/Detail";
 
 /* axios.defaults.baseURL = "http://localhost:3001"; */
-axios.defaults.baseURL = "https://mynotesback.onrender.com";
-
+axios.defaults.baseURL = "https://my-notes-production.up.railway.app/";
+/* https://mynotesback.onrender.com */
 function App() {
   return (
     <div className="divPadre">
