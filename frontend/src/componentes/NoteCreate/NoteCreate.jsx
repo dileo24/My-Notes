@@ -88,7 +88,7 @@ const NoteCreate = () => {
               ></input>
 
               <div className={style.publicCat}>
-                <button type="submit" className={style.btn}>
+                <button type="submit" className={style.btn} disabled={!name}>
                   Create category!
                 </button>
               </div>
