@@ -69,7 +69,8 @@ const UpdateNote = () => {
 
   const handleDeleteCateg = (e) => {
     e.preventDefault();
-    dispatch(deleteCategory(e.target.value)).then(dispatch(getCategorys()));
+    dispatch(deleteCategory(e.target.value));
+    dispatch(getCategorys()).then(dispatch(getCategorys()));
     console.log(e.target.value + " ELIMINADO");
     setTimeout(() => dispatch(getCategorys()), 100);
   };
