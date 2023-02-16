@@ -69,7 +69,7 @@ const UpdateNote = () => {
 
   const handleDeleteCateg = (e) => {
     e.preventDefault();
-    dispatch(deleteCategory(e.target.value));
+    dispatch(deleteCategory(e.target.value)).then(dispatch(getCategorys()));
     console.log(e.target.value + " ELIMINADO");
     setTimeout(() => dispatch(getCategorys()), 100);
   };
@@ -77,7 +77,7 @@ const UpdateNote = () => {
   const handlerSubmitCateg = (e) => {
     e.preventDefault();
     console.log(name);
-    dispatch(postCategory({ name }));
+    dispatch(postCategory({ name })).then(dispatch(getCategorys()));
     setTimeout(() => dispatch(getCategorys()), 100);
     setname("");
   };
