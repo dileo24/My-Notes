@@ -1,4 +1,4 @@
-const { Category, Note } = require("../db.js");
+const { Category } = require("../db.js");
 
 const getCategorys = async (req, res) => {
   try {
@@ -22,7 +22,21 @@ const postCategorys = async (req, res) => {
   }
 };
 
+const deleteCategory = async (req, res) => {
+  try {
+    let { id } = req.params;
+    const category = await Category.findByPk(id);
+
+    console.log(category);
+    await category.destroy();
+    res.status(200).json(category);
+  } catch (error) {
+    res.status(404).send(error.message);
+  }
+};
+
 module.exports = {
   getCategorys,
   postCategorys,
+  deleteCategory,
 };

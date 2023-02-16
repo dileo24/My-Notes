@@ -7,6 +7,7 @@ import {
   GET_CATEGORYS,
   FILTER_BY_CATEG,
   SEARCHxTITLE,
+  DELETE_CATEG,
 } from "./actions";
 
 const initialState = {
@@ -47,6 +48,15 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         notes: state.notes.filter((note) => note.id !== action.payload),
+      };
+    }
+
+    case DELETE_CATEG: {
+      return {
+        ...state,
+        categorys: state.categorys.filter(
+          (categ) => categ.id !== action.payload
+        ),
       };
     }
 

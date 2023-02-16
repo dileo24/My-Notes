@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import style from "./NoteCreate.module.css";
 import {
+  deleteCategory,
   getCategorys,
   getNotes,
   postCategory,
@@ -57,12 +58,18 @@ const NoteCreate = () => {
     setname(e.target.value);
   };
 
+  const handleDeleteCateg = (e) => {
+    e.preventDefault();
+    dispatch(deleteCategory(e.target.value));
+    console.log(e.target.value + " ELIMINADO");
+    setTimeout(() => dispatch(getCategorys()), 100);
+  };
+
   const handlerSubmitCateg = (e) => {
     e.preventDefault();
     console.log(name);
-    dispatch(postCategory({ name }))
-      .then(dispatch(getCategorys()))
-      .then(dispatch(getCategorys()));
+    dispatch(postCategory({ name }));
+    setTimeout(() => dispatch(getCategorys()), 100);
     setname("");
   };
 
@@ -102,20 +109,28 @@ const NoteCreate = () => {
             <div className={style.categs}>
               {categs?.map((obj) => {
                 return (
-                  <div className={style.categsDiv}>
+                  <div className={style.categsDiv} key={obj.id}>
                     <label
                       htmlFor={obj.name}
                       key={obj.id}
                       className={style.categsLabel}
                     >
                       {obj.name}
-                      <input
-                        type="checkbox"
-                        name="categ"
-                        id={obj.id}
-                        value={obj.name}
-                        onChange={(e) => handlerSelectCateg(e)}
-                      />
+                      <div className={style.selectss}>
+                        <input
+                          type="checkbox"
+                          name="categ"
+                          id={obj.id}
+                          value={obj.name}
+                          onChange={(e) => handlerSelectCateg(e)}
+                        />
+                        <button
+                          value={obj.id}
+                          onClick={(e) => handleDeleteCateg(e)}
+                        >
+                          x
+                        </button>
+                      </div>
                     </label>
                   </div>
                 );

@@ -7,6 +7,7 @@ export const GET_CATEGORYS = "GET_CATEGORYS";
 export const FILTER_BY_CATEG = "FILTER_BY_CATEG";
 export const CLEAN_DETAIL = "CLEAN_DETAIL";
 export const SEARCHxTITLE = "SEARCHxTITLE";
+export const DELETE_CATEG = "DELETE_CATEG";
 
 export const getNotes = () => {
   return async function (dispatch) {
@@ -51,6 +52,19 @@ export function postCategory(payload) {
   return async function () {
     const response = await axios.post("/categorys", payload);
     return response;
+  };
+}
+export function deleteCategory(id) {
+  return async function (dispatch) {
+    await axios.delete(`/categorys/${id}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return dispatch({
+      type: DELETE_CATEG,
+      payload: id,
+    });
   };
 }
 
