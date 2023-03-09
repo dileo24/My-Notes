@@ -95,7 +95,6 @@ const UpdateNote = () => {
         {detail.length && (
           <div className={style.forms}>
             {/* creacion de categoría */}
-
             <form onSubmit={(e) => handlerSubmitCateg(e)}>
               <div className={style.inputI}>
                 <label className={style.newCat}>New Category: </label>
@@ -114,9 +113,7 @@ const UpdateNote = () => {
                 </div>
               </div>
             </form>
-
             {/* creacion de la nota */}
-
             <form onSubmit={(e) => handlerSubmit(e)}>
               {detail[0].category.length ? (
                 <p
@@ -142,7 +139,7 @@ const UpdateNote = () => {
                             type="checkbox"
                             name="categ"
                             id={obj.id}
-                            value={obj.name}
+                            value={obj.name || detail[0].category}
                             onChange={(e) => handlerSelectCateg(e)}
                           />
                           <button
@@ -161,10 +158,9 @@ const UpdateNote = () => {
               <div className={style.inputI}>
                 <label>Title: </label>
                 <input
-                  placeholder={`Anterior: ${detail[0].title}`}
                   type="text"
                   name="title"
-                  value={input.title}
+                  value={[input.title || detail[0].title]}
                   className={style.titleInput}
                   onChange={(e) => handlerChange(e)}
                 ></input>
@@ -173,10 +169,9 @@ const UpdateNote = () => {
               <div className={style.inputI}>
                 <label>Content: </label>
                 <textarea
-                  placeholder={`Anterior: ${detail[0].content}`}
                   type="text"
                   name="content"
-                  value={input.content}
+                  value={[input.content || detail[0].content]}
                   className={style.contentInput}
                   onChange={(e) => handlerChange(e)}
                 ></textarea>
